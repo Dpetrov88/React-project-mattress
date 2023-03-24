@@ -1,0 +1,131 @@
+#detailsPage {
+    height: 630px;
+    background-color: #c7cfe1;
+    padding-top: 10px;
+}
+
+.wrapper {
+    height: 400px;
+    width: 1000px;
+    margin: 30px auto;
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: 0px 0px 1.5px 3px gray;
+    margin-bottom: 200px;
+    background-color: pink;
+}
+
+.mattressCover {
+    float: left;
+    height: 100%;
+    width: auto;
+    margin-right: 20px;
+}
+
+.mattressCover img {
+    border-radius: 12px 0 0 7px;
+    height: 100%;
+}
+
+.mattressText {
+    padding-left: 10px;
+    padding-top: 20px;
+    
+}
+
+.mattressText h1 {
+    color:rgb(28, 19, 19);
+    font-weight: bolder;
+    font-size: 33px;
+
+}
+
+.mattressText h3 {
+    margin: 8px 0 47px 18px;
+    font-size: 22px;
+    color: rgb(22, 19, 19);
+    letter-spacing: 0.2em;
+    margin-bottom: 0;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+.mattressText > p {
+    width: 100%;
+    height: auto;
+    color: rgb(22, 19, 19);
+    line-height: 1.6em;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 20px;
+
+ 
+}
+
+.actionBtn  {
+    display: flex;
+    text-align: center;
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: 0;
+}
+
+
+.actionBtn > a {
+	width: 200%;
+	height: 50px;
+	cursor: pointer;
+	border: none;
+    border-radius: 10px;
+	display: inline;
+	align-items: center;
+	justify-content: center;
+	background-color: #1b2845;
+	background-image: linear-gradient(315deg, #45a29e 0%, #0d324d 74%);
+	background-size: 200% 100%;
+	background-position: left;
+	background-repeat: no-repeat;
+	transition: 500ms;
+    color: white;
+   
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 10px;
+    text-decoration: none;
+    margin-right: 50px;
+}
+
+.actionBtn > a:hover {
+	background-position: right;
+}
+
+.actionBtn > button {
+	width: 200%;
+	height: 50px;
+	cursor: pointer;
+	border: none;
+    border-radius: 10px;
+	display: inline;
+	align-items: center;
+	justify-content: center;
+	background-color: #1b2845;
+	background-image: linear-gradient(315deg, #45a29e 0%, #0d324d 74%);
+	background-size: 200% 100%;
+	background-position: left;
+	background-repeat: no-repeat;
+	transition: 500ms;
+    color: white;
+   
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 10px;
+    text-decoration: none;
+    margin-right: 50px;
+}
+
+.actionBtn > button:hover {
+	background-position: right;
+}
