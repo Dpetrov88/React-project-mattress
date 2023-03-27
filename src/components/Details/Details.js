@@ -6,7 +6,7 @@ import { useService } from "../../hooks/useService";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export const Details = () => {
-    const { userId } = useContext(AuthContext)
+    const { userId, isAuthenticated } = useContext(AuthContext)
     const {mattressId } = useParams();
     const [ mattress, setMattress ] = useState({});
     const mattressService = useService(mattressServiceFactory);
@@ -47,6 +47,14 @@ export const Details = () => {
                 <div className="actionBtn">
                     <Link to={`/catalog/${mattress._id}/edit`} className="edit">Edit</Link>
                     <button  onClick={onDeleteClick}>Delete</button>
+                
+                </div>
+                 )}
+
+                 {!isOwner && isAuthenticated && (
+                    <div className="actionBtn">
+                    
+                    <button >Buy</button>
                 
                 </div>
                  )}
