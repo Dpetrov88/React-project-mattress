@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 import {Routes, Route, useNavigate} from 'react-router-dom'
 
 import {mattressServiceFactory} from "./service/mattressService";
-import {authServiceFactory} from "./service/authService";
-import { AuthContext } from './contexts/AuthContext'
+import { AuthProvider } from './contexts/AuthContext'
 
 import { Header } from './components/Header/Header';
 import { Catalog } from './components/Catalog/Catalog';
@@ -20,10 +19,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 	const navigate = useNavigate();
-	const [user, setUser] = useState({});
+	
 	const [mattress, setMattress] = useState([]);
-	const mattressService = mattressServiceFactory(user.accessToken);
-	const authService =  authServiceFactory(user.accessToken)
+	const mattressService = mattressServiceFactory();//user.accessToken
+	
 	
 	useEffect(() => {
 		mattressService.getAll()
@@ -40,42 +39,6 @@ function App() {
 		navigate('/catalog')
 	};
 
-	const onLoginSubmit = async(data) => {
-		try {
-			const result = await authService.login(data);
-			
-			setUser(result);
-			
-			navigate('/');
-
-		} catch (error) {
-			console.log("Problem!!");
-		}
-	};
-
-	const onLogout = async() => {
-		 await authService.logout();
-
-		setUser({});
-	}
-
-	const onRegisterSubmit = async(data) => { 
-		const {confirmPass , ...registerData } = data;
-
-		if (confirmPass !== registerData.password) {
-			return;
-		}
-		try {
-			const result = await authService.register(registerData);
-
-			setUser(result);
-
-			navigate('/');
-
-		} catch (error) {
-			console.log("Problem!");
-		}
-	};
 
 	const onEditMattresssubmit = async(values) => {
 		const result = await mattressService.edit(values._id, values);
@@ -85,19 +48,10 @@ function App() {
 		navigate(`/catalog/${values._id}`);
 	};
 
-	const contex = {
-		onLoginSubmit,
-		onRegisterSubmit,
-		onLogout,
-		userId: user._id,
-		token: user.accessToken,
-		email: user.email,
-		isAuthenticated: !!user.accessToken,
-
-	}
+	
 
   return (
-	<AuthContext.Provider value={contex}>
+	<AuthProvider>
 		<div id='mattress'>
 		<Header/>
 			<main>
@@ -117,7 +71,7 @@ function App() {
 			<Footer />
 
 		</div>
-	</AuthContext.Provider>
+	</AuthProvider>
   )
 };
 
