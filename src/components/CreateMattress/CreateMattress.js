@@ -1,9 +1,9 @@
 
+import { useMattressContex } from '../../contexts/MattresContext';
 import { useForm } from '../../hooks/useForm';
 
-export const CreateMattress = ({
-    onCreateMattressSubmit,
-}) => {
+export const CreateMattress = () => {
+    const {onCreateMattressSubmit} = useMattressContex();
     const {values, changeHandler, onSubmit} = useForm({
         brand : '',
         category: '',
