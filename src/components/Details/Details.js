@@ -6,7 +6,7 @@ import { useService } from "../../hooks/useService";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export const Details = () => {
-    const { userId, isAuthenticated } = useContext(AuthContext)
+    const { userId, isAuthenticated } = useContext(AuthContext);
     const {mattressId } = useParams();
     const [ mattress, setMattress ] = useState({});
     const mattressService = useService(mattressServiceFactory);
@@ -22,6 +22,7 @@ export const Details = () => {
     const isOwner = mattress._ownerId === userId; 
 
     const onDeleteClick = async() => {
+        
         await mattressService.delete(mattress._id);
 
         navigate('/catalog');
@@ -46,7 +47,7 @@ export const Details = () => {
 
                 <div className="actionBtn">
                     <Link to={`/catalog/${mattress._id}/edit`} className="edit">Edit</Link>
-                    <button  onClick={onDeleteClick}>Delete</button>
+                    <button onClick={onDeleteClick}>Delete</button>
                 
                 </div>
                  )}
