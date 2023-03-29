@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react'
-import {Routes, Route, useNavigate} from 'react-router-dom'
-
-import {mattressServiceFactory} from "./service/mattressService";
+import {Routes, Route} from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext'
+import { MattressProvider } from './contexts/MattresContext';
 
 import { Header } from './components/Header/Header';
 import { Catalog } from './components/Catalog/Catalog';
@@ -18,59 +16,31 @@ import { Logout } from './components/Logout/Logout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-	const navigate = useNavigate();
-	
-	const [mattress, setMattress] = useState([]);
-	const mattressService = mattressServiceFactory();//user.accessToken
-	
-	
-	useEffect(() => {
-		mattressService.getAll()
-		.then(result => {
-			setMattress(result)
-		})
-	},[]);
-
-	const onCreateMattressSubmit = async(data) => {
-		const newMattress = await mattressService.create(data);
-
-		setMattress(state => [...state, newMattress] );
-
-		navigate('/catalog')
-	};
-
-
-	const onEditMattresssubmit = async(values) => {
-		const result = await mattressService.edit(values._id, values);
-
-		setMattress(state => state.map(x => x._id === values._id ? result : x));
-
-		navigate(`/catalog/${values._id}`);
-	};
-
-	
 
   return (
 	<AuthProvider>
-		<div id='mattress'>
-		<Header/>
-			<main>
-				<Routes>
-					<Route path='/' element={<Home mattress={mattress}/>} />
-					<Route path='/login' element={<Login /> } />
-					<Route path='/register' element={<Register />} />
-					<Route path='/logout' element={<Logout /> } />
-					<Route path='/create' element={<CreateMattress onCreateMattressSubmit={onCreateMattressSubmit} />} />
-					<Route path='/catalog' element={<Catalog mattress={mattress} />} />
-					<Route path='/catalog/:mattressId' element={<Details />} />
-					<Route path='/catalog/:mattressId/edit' element={<Edit onEditMattresssubmit={onEditMattresssubmit} />} />
-				</Routes>
+		<MattressProvider>
+			<div id='mattress'>
+			<Header/>
+				<main>
+					<Routes>
+						<Route path='/' element={<Home />} />
+						<Route path='/login' element={<Login /> } />
+						<Route path='/register' element={<Register />} />
+						<Route path='/profil' element='' />
+						<Route path='/logout' element={<Logout /> } />
+						<Route path='/create' element={<CreateMattress />} />
+						<Route path='/catalog' element={<Catalog />} />
+						<Route path='/catalog/:mattressId' element={<Details  />} />
+						<Route path='/catalog/:mattressId/edit' element={<Edit />} />
+					</Routes>
 
-			</main>
+				</main>
 
-			<Footer />
+				<Footer />
 
-		</div>
+			</div>
+		</MattressProvider>
 	</AuthProvider>
   )
 };
