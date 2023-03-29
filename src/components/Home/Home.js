@@ -1,8 +1,8 @@
+import { useMattressContex } from "../../contexts/MattresContext";
 import { HomeItem } from "./HomeItem";
 
-export const Home = ({
-    mattress,
-}) => {
+export const Home = () => {
+    const {mattress} = useMattressContex();
     return (
         <section id="welcome-world">
 
