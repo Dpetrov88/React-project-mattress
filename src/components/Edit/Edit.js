@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useMattressContex } from "../../contexts/MattresContext";
 
 import { useForm } from "../../hooks/useForm";
 import { useService } from "../../hooks/useService";
 import { mattressServiceFactory } from "../../service/mattressService";
 
-export const Edit = ({
-    onEditMattresssubmit,
-}) => {
+export const Edit = () => {
+    const {onEditMattresssubmit} = useMattressContex()
     const { mattressId } = useParams();
     const mattressService = useService(mattressServiceFactory);
     const {values, changeHandler, onSubmit, changeValues} = useForm({
