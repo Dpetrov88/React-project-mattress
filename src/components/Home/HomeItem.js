@@ -9,7 +9,7 @@ export const HomeItem = ({
     return (
      <div className="mattress">
         <div className="image-wrap">
-            <img src={image} />
+            <img src={image}  />
         </div>
         <h3>{brand}</h3>
         <div className="rating">
