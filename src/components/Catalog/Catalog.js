@@ -1,9 +1,9 @@
-
+import { useMattressContex } from '../../contexts/MattresContext'
 import { CatalogItem } from './CatalogItem'
 
-export const Catalog = ({
-    mattress,
-}) => {
+export const Catalog = () => {
+
+    const {mattress } = useMattressContex();
     return (
 
 <section  id='catalog'>
