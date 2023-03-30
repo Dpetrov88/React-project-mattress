@@ -12,6 +12,7 @@ import { Register } from './components/Register/Register';
 import { Details } from './components/Details/Details';
 import { Edit } from './components/Edit/Edit';
 import { Logout } from './components/Logout/Logout';
+import { RouteGuard } from './components/common/RouteGuard';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -28,11 +29,14 @@ function App() {
 						<Route path='/login' element={<Login /> } />
 						<Route path='/register' element={<Register />} />
 						<Route path='/profil' element='' />
-						<Route path='/logout' element={<Logout /> } />
+					<Route element={<RouteGuard />}>
 						<Route path='/create' element={<CreateMattress />} />
+						<Route path='/catalog/:mattressId/edit' element={<Edit />} />
+						<Route path='/logout' element={<Logout /> } />
+					
+					</Route>
 						<Route path='/catalog' element={<Catalog />} />
 						<Route path='/catalog/:mattressId' element={<Details  />} />
-						<Route path='/catalog/:mattressId/edit' element={<Edit />} />
 					</Routes>
 
 				</main>
