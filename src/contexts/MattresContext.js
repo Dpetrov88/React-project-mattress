@@ -35,10 +35,15 @@ export const MattressProvider = ({
 		navigate(`/catalog/${values._id}`);
 	};
 
+    const deleteMattress = (mattressId) => {
+        setMattress(state => state.filter(mattress => mattress._id !== mattressId ));
+    };
+
     const contextValue = {
         mattress,
         onCreateMattressSubmit,
         onEditMattresssubmit,
+        deleteMattress,
     }
 
     return (
