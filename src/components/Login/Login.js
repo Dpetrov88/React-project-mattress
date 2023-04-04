@@ -18,10 +18,24 @@ export const Login = () => {
                 <legend>Login</legend>
     
                 <label htmlFor="email" className="vhod">Email</label>
-                <input  id="email" className="email" name="email" type="text" placeholder="Email" value={values.email} onChange={changeHandler} />
+                <input  
+                id="email" 
+                className="email" 
+                name="email" 
+                type="email" 
+                placeholder="Email" 
+                value={values.email} 
+                onChange={changeHandler} />
     
                 <label htmlFor="password" className="vhod">Password</label>
-                <input id="password" className="password" name="password" type="password" placeholder="Password" value={values.password} onChange={changeHandler} />
+                <input 
+                id="password" 
+                className="password" 
+                name="password" 
+                type="password" 
+                placeholder="Password"
+                 value={values.password} 
+                 onChange={changeHandler} />
     
                 <button type="submit" className="login">Login</button>
     
