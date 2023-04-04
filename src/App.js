@@ -15,6 +15,7 @@ import { Logout } from './components/Logout/Logout';
 import { RouteGuard } from './components/common/RouteGuard';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Profile } from './components/Profile/Profile';
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
 						<Route path='/' element={<Home />} />
 						<Route path='/login' element={<Login /> } />
 						<Route path='/register' element={<Register />} />
-						<Route path='/profil' element='' />
+						<Route path='/profile' element={<Profile />} />
 					<Route element={<RouteGuard />}>
 						<Route path='/create' element={<CreateMattress />} />
 						<Route path='/catalog/:mattressId/edit' element={<Edit />} />
