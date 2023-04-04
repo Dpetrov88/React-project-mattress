@@ -22,22 +22,22 @@ export const CreateMattress = () => {
                     <h1>Create Mattress</h1>
 
                     <label htmlFor="leg-title">Brand:</label>
-                    <input value={values.brand} onChange={changeHandler} type="text" id="title" name="brand" placeholder="Enter brand..." />
+                    <input value={values.brand} onChange={changeHandler} type="text"  name="brand" placeholder="Enter brand..." />
 
                     <label htmlFor="category">Category:</label>
-                    <input value={values.category} onChange={changeHandler} type="text" id="category" name="category" placeholder="one side/double side" />
+                    <input value={values.category} onChange={changeHandler} type="text"  name="category" placeholder="one side/double side" />
 
                     <label htmlFor="levels">Size:</label>
-                    <input value={values.size} onChange={changeHandler}  id="size" name="size" min="1" placeholder="90/190" />
+                    <input value={values.size} onChange={changeHandler}  name="size" placeholder="90/190" />
 
                     <label htmlFor="img">Image:</label>
-                    <input value={values.image} onChange={changeHandler} type="text" id="imageUrl" name="image" placeholder="Upload a photo..." />
+                    <input value={values.image} onChange={changeHandler} type="text"  name="image" placeholder="Upload a photo..." />
 
-                    <label htmlFor="price">Price:</label>
-                    <input value={values.price} onChange={changeHandler} type="number" id="price" name="price" placeholder="0" />
+                    <label htmlFor="price">Price: </label>
+                    <input value={values.price} onChange={changeHandler} type="number"  name="price" placeholder="0" />
 
                     <label htmlFor="summary">Summary: </label>
-                    <textarea name="summary" id="summary" value={values.summary} onChange={changeHandler} placeholder="write..."></textarea>
+                    <textarea name="summary"  value={values.summary} onChange={changeHandler} placeholder="write..."></textarea>
                     <button type="submit">Create</button>
                 </div>
             </form>
