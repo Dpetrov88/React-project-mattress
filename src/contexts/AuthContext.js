@@ -47,8 +47,8 @@ export const AuthProvider = ({
 
     const onLogout = async() => {
         await authService.logout();
-
-       setUser({});
+		
+		setUser({});
    }
 
     const contex = {
