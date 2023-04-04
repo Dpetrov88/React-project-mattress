@@ -1,8 +1,9 @@
-import {createContext } from 'react';
+import {createContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
 import {authServiceFactory} from "../service/authService";
+
 
 
 export const AuthContext = createContext();
@@ -10,6 +11,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({
     children,
 }) => {
+	const [error, setEror] = useState([])
     const [user, setUser] = useLocalStorage('user', {});
     const navigate = useNavigate();
     const authService =  authServiceFactory(user.accessToken);
@@ -23,7 +25,8 @@ export const AuthProvider = ({
 			navigate('/');
 
 		} catch (error) {
-			console.log("Problem!!");
+			setEror(error.message)
+			
 		}
 	};
 
@@ -31,7 +34,7 @@ export const AuthProvider = ({
 		const {confirmPass , ...registerData } = data;
 
 		if (confirmPass !== registerData.password) {
-			return;
+			return setEror('Password don`t match!');
 		}
 		try {
 			const result = await authService.register(registerData);
@@ -41,7 +44,7 @@ export const AuthProvider = ({
 			navigate('/');
 
 		} catch (error) {
-			console.log("Problem!");
+			setEror(error.message)
 		}
 	};
 
@@ -63,6 +66,11 @@ export const AuthProvider = ({
 	}
     return (
         <AuthContext.Provider value={contex}>
+			{error && (
+				<div>
+				<p>{error}</p>
+			</div>
+			)}
              {children }
         </AuthContext.Provider>
     )
