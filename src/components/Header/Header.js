@@ -19,11 +19,11 @@ export const Header = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <Link to="/catalog">Catalog</Link>
-          <Link to="/profil">Profil</Link>
+          <Link to="/profile">Profil</Link>
           {isAuthenticated && (<>
           <Link to="/create">CreateMattress</Link>
           <Link to="/logout">Logout</Link>
-          <p id='mail'>{email}</p>
+          <p id='mail'>Welcome: {email}</p>
           </>
           )}
           {!isAuthenticated && (
