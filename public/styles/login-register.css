@@ -1,6 +1,7 @@
 
 fieldset {
-  margin: 1em auto;
+  box-sizing: border-box;
+  margin-left: 5em;
   padding: 2em;
   width: 25em;
   height: 11.5cm;
@@ -22,6 +23,8 @@ fieldset legend {
   display: block;
   width: 100%;
   margin: 0 auto;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 input, input + label > i {
@@ -77,24 +80,33 @@ input[type=text]:focus, input[type=password]:focus {
   font-size: 20px;
   margin-bottom: 5px;
   margin-top: 80px;
-  margin-left: 120px;
+  margin-left: 150px;
 }
 
 #loginPage {
   height: 17cm;
   font-size: 18px;
   color: #aab2bd;
-  padding-left: 31%;
-  padding-top: 30px;
-  background-color: grey
+  padding-left: 35%;
+  padding-top: 5px;
+  background-color: grey;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position-y: 88%;
+  
 }
  #registerPage {
   height: 17cm;
   font-size: 18px;
   color: #aab2bd;
-  padding-left: 30.6%;
-  padding-top: 30px;
+  padding-left: 35%;
+  padding-top: 5px;
   background-color: pink;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position-y: 88%;
 }
 
 
@@ -109,6 +121,11 @@ input[type=text]:focus, input[type=password]:focus {
 * {
   box-sizing: border-box;
  
+}
+
+.field{
+  margin-top: -1em;
+  margin-left: 5em;
 }
 
 p{
