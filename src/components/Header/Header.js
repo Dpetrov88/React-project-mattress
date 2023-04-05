@@ -12,7 +12,7 @@ import Form from 'react-bootstrap/Form';
 export const Header = () => {
   const {isAuthenticated, email} = useContext(AuthContext);
   return (
-    <Navbar bg="dark"  variant='dark'>
+    <Navbar sticky='top' bg="dark"  variant='dark'>
     <Container>
       <Link to="/">Home</Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
