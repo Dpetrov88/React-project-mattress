@@ -1,4 +1,4 @@
-import {createContext, useState } from 'react';
+import {createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
@@ -11,12 +11,15 @@ export const AuthContext = createContext();
 export const AuthProvider = ({
     children,
 }) => {
-	const [error, setEror] = useState([])
     const [user, setUser] = useLocalStorage('user', {});
     const navigate = useNavigate();
     const authService =  authServiceFactory(user.accessToken);
 
     const onLoginSubmit = async(data) => {
+		const {email, password} = data;
+		if (!email || !password) {
+			return alert("All field are required")
+		}
 		try {
 			const result = await authService.login(data);
 			
@@ -25,7 +28,7 @@ export const AuthProvider = ({
 			navigate('/');
 
 		} catch (error) {
-			setEror(error.message)
+			alert(error.message)
 			
 		}
 	};
@@ -34,7 +37,10 @@ export const AuthProvider = ({
 		const {confirmPass , ...registerData } = data;
 
 		if (confirmPass !== registerData.password) {
-			return setEror('Password don`t match!');
+			return alert('Password don`t match!');
+		}
+		if (!confirmPass || !registerData.password || !registerData.email) {
+			return alert("All field are required");
 		}
 		try {
 			const result = await authService.register(registerData);
@@ -44,14 +50,14 @@ export const AuthProvider = ({
 			navigate('/');
 
 		} catch (error) {
-			setEror(error.message)
+			alert(error.message)
 		}
 	};
 
     const onLogout = async() => {
         await authService.logout();
-		
 		setUser({});
+		localStorage.clear()
    }
 
     const contex = {
@@ -65,12 +71,7 @@ export const AuthProvider = ({
 
 	}
     return (
-        <AuthContext.Provider value={contex}>
-			{error && (
-				<div>
-				<p>{error}</p>
-			</div>
-			)}
+		<AuthContext.Provider value={contex}>
              {children }
         </AuthContext.Provider>
     )
