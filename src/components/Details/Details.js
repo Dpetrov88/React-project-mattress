@@ -8,13 +8,15 @@ import {mattressServiceFactory}from '../../service/mattressService';
 import { useService } from "../../hooks/useService";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useMattressContex } from "../../contexts/MattresContext";
+import * as buyService  from '../../service/buyService';
 
 export const Details = () => {
     const { userId, isAuthenticated } = useContext(AuthContext);
     const {mattressId } = useParams();
     const {deleteMattress} = useMattressContex();
-    const [show, setShow] =useState(false);
+    const [show, setShow] = useState(false);
     const [ mattress, setMattress ] = useState({});
+    const [buy, setBuy] = useState({});
     const mattressService = useService(mattressServiceFactory);
     const navigate = useNavigate();
 
@@ -25,21 +27,31 @@ export const Details = () => {
             });
     },[mattressId]);
 
+    useEffect(() => {
+        buyService.getBuy(mattressId, userId)
+            .then(result => {
+                setBuy(result)
+            });
+    },[]);
+
+    console.log(buy);
+
     const isOwner = mattress._ownerId === userId; 
 
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
     
     const onDeleteClick = async() => {
-            
               await mattressService.delete(mattress._id);
-      
               deleteMattress(mattress._id);
-      
               navigate('/catalog');
-          
     }
 
+    const onBuyClick = () => {
+     buyService.create(mattress,userId);
+    
+     navigate('/profile')
+    }
     return(
         <>
         {show && (
@@ -62,7 +74,7 @@ export const Details = () => {
         <section id="detailsPage">
     <div className="wrapper">
         <div className="mattressCover">
-            <img src={mattress.image} />
+            <img src={mattress.image} alt='No img' />
         </div>
         <div className="mattressInfo">
             <div className="mattressText">
@@ -86,10 +98,10 @@ export const Details = () => {
                  {!isOwner && isAuthenticated && (
                     <div className="actionBtn">
                     
-                    <button >Buy</button>
+                    <button onClick={onBuyClick}>Buy</button>
                 
                 </div>
-                 )}
+                )}
         </div>
     </div>
 </section>
