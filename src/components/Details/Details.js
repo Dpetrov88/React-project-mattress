@@ -48,7 +48,7 @@ export const Details = () => {
     }
 
     const onBuyClick = () => {
-     buyService.create(mattress,userId);
+     buyService.create(mattress,mattressId);
     
      navigate('/profile')
     }
@@ -95,13 +95,19 @@ export const Details = () => {
                 </div>
                  )}
 
-                 {!isOwner && isAuthenticated && (
+                 {!isOwner && isAuthenticated && buy === 0 ? 
                     <div className="actionBtn">
                     
                     <button onClick={onBuyClick}>Buy</button>
                 
                 </div>
-                )}
+                : 
+                <div className="actionBtn">
+                    
+                    <p>You already bougth this mattress!</p>
+                
+                </div>
+                }
         </div>
     </div>
 </section>
