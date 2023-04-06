@@ -8,7 +8,7 @@
     position: relative;
     box-sizing: border-box;
     text-align: center;
-    background-color: rgba(128, 128, 128, 0.715);
+    background-color:pink
 }
 
 
@@ -16,6 +16,7 @@
 #create,
 #edit,
 #loginPage,
+#profile,
 #registerPage{
 background-image: url('../images/back.webp');
 }
