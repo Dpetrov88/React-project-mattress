@@ -33,7 +33,7 @@ export const CreateMattress = () => {
                     <label htmlFor="img">Image:</label>
                     <input value={values.image} onChange={changeHandler} type="text"  name="image" placeholder="Upload a photo..." />
 
-                    <label htmlFor="price">Price: </label>
+                    <label htmlFor="price">Price: $ </label>
                     <input value={values.price} onChange={changeHandler} type="number"  name="price" placeholder="0" />
 
                     <label htmlFor="summary">Summary: </label>
