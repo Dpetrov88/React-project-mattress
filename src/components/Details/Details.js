@@ -95,19 +95,22 @@ export const Details = () => {
                 </div>
                  )}
 
-                 {!isOwner && isAuthenticated && buy === 0 ? 
+                 {!isOwner && isAuthenticated && buy === 0  &&
                     <div className="actionBtn">
                     
                     <button onClick={onBuyClick}>Buy</button>
                 
                 </div>
-                : 
+                    }    
+                {!isOwner && isAuthenticated && buy > 0 &&
+                
                 <div className="actionBtn">
                     
                     <p>You already bougth this mattress!</p>
                 
                 </div>
-                }
+                }       
+                
         </div>
     </div>
 </section>
