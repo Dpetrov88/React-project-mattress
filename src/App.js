@@ -29,8 +29,8 @@ function App() {
 						<Route path='/' element={<Home />} />
 						<Route path='/login' element={<Login /> } />
 						<Route path='/register' element={<Register />} />
-						<Route path='/profile' element={<Profile />} />
 					<Route element={<RouteGuard />}>
+						<Route path='/profile' element={<Profile />} />
 						<Route path='/create' element={<CreateMattress />} />
 						<Route path='/catalog/:mattressId/edit' element={<Edit />} />
 						<Route path='/logout' element={<Logout /> } />
