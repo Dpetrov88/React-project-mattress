@@ -129,10 +129,9 @@
 .actionBtn > button:hover {
 	background-position: right;
 }
-.actionBtn > .buy  {
+.actionBtn > p  {
 	width: 200%;
-	height: 50px;
-	cursor: pointer;
+	height: 50px auto;
 	border: none;
     border-radius: 10px;
 	display: inline;
