@@ -2,11 +2,9 @@ import { useState, useEffect , useContext} from "react";
 
 import { AuthContext } from '../../contexts/AuthContext'; 
 import * as buyService  from '../../service/buyService';
-// import { mattressServiceFactory } from "../../service/mattressService";
-// import { useService } from "../../hooks/useService";
+
 
 export const Profile = () => {
-// const mattressService = useService(mattressServiceFactory);
 const { userId } = useContext(AuthContext);
 const [buy,setBuy] = useState([]);
 
@@ -19,28 +17,30 @@ useEffect(() => {
    })
 },[]);
 
-console.log(buy);
-
  return (
      <>
-        <section  className="buy">
-        <h1>You bougth:</h1>
-
-        {/* <!-- Display ul: with list-items for every user's books (if any) --> */}
-        {buy.map(x => 
-        <ul key={x._id} className="my-books-list">
-
-            <li className="buyMattress">
-                <h3>$ </h3>
-                <p>Type: Ubav</p>
-                <p className="img"><img src=''/></p>
-            </li> 
-        </ul>
+        <section  id="profile">
+            {buy.length > 0 &&
             
+        <h1>You bought:</h1>
+            }
+
+        {buy.map(x => 
+            <div key={x._id} className="offer">
+            <img src={x.mattress['image']} alt="./images/back.webp" />
+            <p><strong>Brand: </strong><span className="title"><strong>{x.mattress['brand']}</strong></span> </p>
+            <p><strong>Category: </strong><span className="title"><strong>{x.mattress['category']}</strong></span> </p>
+            <p><strong>Price:</strong><span className="salary"><strong>{x.mattress['price']}$</strong></span></p>
+         
+        </div>
             )}
         
+            {buy.length === 0 &&
+           <section className="no-mattress">
+               <h1>You don`t buy any mattress yet!</h1>
 
-        <p className="no-books">You do not buy yet!</p>
+           </section> 
+            }
         
         
 
