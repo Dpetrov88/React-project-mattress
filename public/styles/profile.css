@@ -5,24 +5,25 @@ h1 {
     color: brown;
 }
 
-.buy {
-    text-align: center;
-    margin: 0rem;
-    padding: 2rem 0 1rem 0;
-}
-
-.buyMattress {
+.offer {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    border-radius: 10px;
+    justify-content: space-between;
+    max-width: 70%;
+    margin: 25px auto;
+    background-color: rgba(128, 128, 128, 0.715);
+    border-radius: 5px;
+    border: 2px ridge rgb(210, 208, 208);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+  }
+  
+  .no-mattress{
+    margin-top: 30px;
+    display: block;
+    width: 15cm;
+    height: 15cm;
+  }
+  .no-mattress>h1 {
+    color: red;
     text-align: center;
-    margin: 2rem;
-    position: relative;
-    width: 400px;
-    height: auto;
-    transition: all 0.3s cubic-bezier(.50, .80, .25, 1);
-    box-shadow: -8px -2px 28px -8px #000000;
-    align-items: center;
-    
-}
+  }
+  
