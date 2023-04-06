@@ -17,8 +17,8 @@ export const getAll = async (userId) => {
     return buyers;
     };
 
-export const create = async ( mattress) => {
-    const result = await request.post(baseUrl, { mattress });
+export const create = async ( mattress, mattressId) => {
+    const result = await request.post(baseUrl, { mattress, mattressId });
         
     return result;
 
