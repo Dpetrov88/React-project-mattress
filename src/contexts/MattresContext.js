@@ -33,12 +33,12 @@ export const MattressProvider = ({
 
 
 	const onEditMattresssubmit = async(values) => {
-		const result = await mattressService.edit(values._id, values);
         const {brand, category, size, image, price, summary} = values;
-
+        
         if (!brand || !category || !size || !image || !price || !summary) {
             return alert('All fields are requared!')
         }
+        const result = await mattressService.edit(values._id, values);
 
 		setMattress(state => state.map(x => x._id === values._id ? result : x));
 
