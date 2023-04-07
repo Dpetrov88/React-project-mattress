@@ -34,7 +34,6 @@ export const Details = () => {
             });
     },[]);
 
-
     const isOwner = mattress._ownerId === userId; 
 
     const handleShow = () => setShow(true);
@@ -64,8 +63,8 @@ export const Details = () => {
         </Modal.Header>
 
         <Modal.Footer>
-          <Button onClick={handleClose} variant="secondary">Close</Button>
-          <Button onClick={onDeleteClick} variant="primary">Delete</Button>
+          <Button onClick={handleClose} variant="secondary">NO</Button>
+          <Button onClick={onDeleteClick} variant="primary">Yes</Button>
         </Modal.Footer>
       </Modal.Dialog>
     </div>
@@ -105,7 +104,7 @@ export const Details = () => {
                 
                 <div className="actionBtn">
                     
-                    <p>You already bougth this mattress!</p>
+                    <p>Congratulation! You bougth this mattress!</p>
                 
                 </div>
                 }       
