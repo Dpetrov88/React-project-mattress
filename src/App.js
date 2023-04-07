@@ -16,6 +16,7 @@ import { RouteGuard } from './components/common/RouteGuard';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Profile } from './components/Profile/Profile';
+import { NotFound } from './components/NotFound/NotFound';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
 			<Header/>
 				<main>
 					<Routes>
+					<Route path='*' element={<NotFound />} />
 						<Route path='/' element={<Home />} />
 						<Route path='/login' element={<Login /> } />
 						<Route path='/register' element={<Register />} />
