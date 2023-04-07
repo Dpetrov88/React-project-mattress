@@ -34,7 +34,6 @@ export const Details = () => {
             });
     },[]);
 
-    console.log(buy);
 
     const isOwner = mattress._ownerId === userId; 
 
