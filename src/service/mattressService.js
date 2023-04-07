@@ -11,11 +11,11 @@ const baseUrl = 'http://localhost:3030/data/mattress';
         
         return mattress;
     };
-    
+
      const getOne = async (mattressId) => {
-        const result = await request.get(`${baseUrl}/${mattressId}`);
-        
-        return result;
+            const result = await request.get(`${baseUrl}/${mattressId}`);
+            
+            return result;
     };
     
     const create = async (data) => {
