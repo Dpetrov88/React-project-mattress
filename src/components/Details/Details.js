@@ -50,6 +50,7 @@ export const Details = () => {
     
      navigate('/profile')
     }
+    
     return(
         <>
         {show && (
@@ -59,7 +60,7 @@ export const Details = () => {
       style={{ display: 'block', position: 'initial' }}>
       <Modal.Dialog>
         <Modal.Header >
-          <Modal.Title>Are you sure you want to delete mattress {mattress.brand}?</Modal.Title>
+          <Modal.Title>Are you sure you want to delete <strong>{mattress.brand}</strong>?</Modal.Title>
         </Modal.Header>
 
         <Modal.Footer>
@@ -104,7 +105,7 @@ export const Details = () => {
                 
                 <div className="actionBtn">
                     
-                    <p>Congratulation! You bougth this mattress!</p>
+                    <p> You already bougth this mattress!</p>
                 
                 </div>
                 }       
