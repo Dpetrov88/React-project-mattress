@@ -22,7 +22,7 @@ useEffect(() => {
         <section  id="profile">
             {buy.length > 0 &&
             
-        <h1>Your mattresses:</h1>
+        <h1>You bougth:</h1>
             }
 
         {buy.map(x => 
