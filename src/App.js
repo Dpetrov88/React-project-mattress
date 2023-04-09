@@ -13,10 +13,10 @@ import { Details } from './components/Details/Details';
 import { Edit } from './components/Edit/Edit';
 import { Logout } from './components/Logout/Logout';
 import { RouteGuard } from './components/common/RouteGuard';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Profile } from './components/Profile/Profile';
 import { NotFound } from './components/NotFound/NotFound';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
