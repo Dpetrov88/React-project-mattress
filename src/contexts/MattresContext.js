@@ -24,11 +24,17 @@ export const MattressProvider = ({
             return alert('All fields are requared!')
         }
 
-		const newMattress = await mattressService.create(data);
+        try {
+            const newMattress = await mattressService.create(data);
+    
+            setMattress(state => [...state, newMattress] );
+    
+            navigate('/catalog')
+            
+        } catch (error) {
+            alert(error.message)
+        }
 
-		setMattress(state => [...state, newMattress] );
-
-		navigate('/catalog')
 	};
 
 
@@ -38,11 +44,17 @@ export const MattressProvider = ({
         if (!brand || !category || !size || !image || !price || !summary) {
             return alert('All fields are requared!')
         }
-        const result = await mattressService.edit(values._id, values);
 
-		setMattress(state => state.map(x => x._id === values._id ? result : x));
-
-		navigate(`/catalog/${values._id}`);
+        try {
+            const result = await mattressService.edit(values._id, values);
+    
+            setMattress(state => state.map(x => x._id === values._id ? result : x));
+    
+            navigate(`/catalog/${values._id}`);
+            
+        } catch (error) {
+            alert(error.message)
+        }
 	};
 
     const deleteMattress = (mattressId) => {
