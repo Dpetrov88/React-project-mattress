@@ -4,8 +4,6 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 
 import {authServiceFactory} from "../service/authService";
 
-
-
 export const AuthContext = createContext();
 
 export const AuthProvider = ({
@@ -72,7 +70,7 @@ export const AuthProvider = ({
 	}
     return (
 		<AuthContext.Provider value={contex}>
-             {children }
+             { children }
         </AuthContext.Provider>
     )
 };
