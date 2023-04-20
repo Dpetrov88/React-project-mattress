@@ -17,6 +17,7 @@ import { Profile } from './components/Profile/Profile';
 import { NotFound } from './components/NotFound/NotFound';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Search } from './components/Search/Search';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
 						<Route path='/' element={<Home />} />
 						<Route path='/login' element={<Login /> } />
 						<Route path='/register' element={<Register />} />
+						<Route path='/search' element={<Search />} />
 					<Route element={<RouteGuard />}>
 						<Route path='/profile' element={<Profile />} />
 						<Route path='/create' element={<CreateMattress />} />
