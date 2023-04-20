@@ -26,7 +26,7 @@ useEffect(() => {
             }
 
         {buy.map(x => 
-            <div key={x._id} className="offer">
+         <div key={x._id} className="offer">
             <img src={x.mattress['image']} alt="./images/back.webp" />
             <p><strong>Brand: </strong><span className="title"><strong>{x.mattress['brand']}</strong></span> </p>
             <p><strong>Category: </strong><span className="title"><strong>{x.mattress['category']}</strong></span> </p>
