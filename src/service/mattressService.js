@@ -11,6 +11,14 @@ const baseUrl = 'http://localhost:3030/data/mattress';
         
         return mattress;
     };
+    const getSearch = async (query) => {
+        let q = query.search
+        const result = await request.get(`${baseUrl}?where=brand%20LIKE%20%22${q}%22`);
+        const mattress = Object.values(result);
+        
+        return mattress;
+    };
+
 
      const getOne = async (mattressId) => {
             const result = await request.get(`${baseUrl}/${mattressId}`);
@@ -32,6 +40,7 @@ const baseUrl = 'http://localhost:3030/data/mattress';
         getAll,
         getOne,
         create,
+        getSearch,
         edit,
         delete:deleteGame,
         
