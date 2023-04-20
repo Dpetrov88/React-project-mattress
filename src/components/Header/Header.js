@@ -7,10 +7,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useForm } from '../../hooks/useForm';
+import { useMattressContex } from '../../contexts/MattresContext';
 
 
 export const Header = () => {
+  const {onSearchSubmit} = useMattressContex()
+  
   const {isAuthenticated, email} = useContext(AuthContext);
+  const {values,changeHandler, onSubmit} = useForm({
+    search: ''},onSearchSubmit);
+
   return (
     <Navbar sticky='top' bg="dark"  variant='dark'>
     <Container>
@@ -34,6 +41,18 @@ export const Header = () => {
           )}
           
         </Nav>
+          <Form onSubmit={onSubmit} className="d-flex">
+            <Form.Control
+            value={values.search}
+            onChange={changeHandler}
+              type="search"
+              name="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button type='Submit' variant="outline-success">Search</Button>
+          </Form>
       </Navbar.Collapse>
     </Container>
   </Navbar>
