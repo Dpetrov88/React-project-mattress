@@ -94,7 +94,7 @@ export const Details = () => {
                 </div>
                  )}
 
-                 {!isOwner && isAuthenticated && buy === 0  &&
+                 {!isOwner && isAuthenticated && (buy === 0 || !buy)  &&
                     <div className="actionBtn">
                     
                     <button onClick={onBuyClick}>Buy</button>
