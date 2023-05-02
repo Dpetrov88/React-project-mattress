@@ -2,12 +2,12 @@ import { useMattressContex } from "../../contexts/MattresContext"
 import { Link } from 'react-router-dom'
 
 export const Search = () => {
-    const {s} = useMattressContex();
+    const {searching} = useMattressContex();
     
     
     return (
         <section id="search" >
-        {s.map(x => 
+        {searching.map(x => 
      <div key={x._id} className="mattresss">
         <div className="image-wrapp">
             <img src={x.image} alt='No img' />
@@ -22,7 +22,7 @@ export const Search = () => {
         </div>
      </div>
      )}
-    {s.length === 0 && 
+    {searching.length === 0 && 
     <h1>Sorry! We coudn`t find this mattress!</h1>}
    </section>
     )
