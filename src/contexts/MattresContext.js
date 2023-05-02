@@ -9,7 +9,7 @@ export const MattressProvider = ({
 }) => {
     const navigate = useNavigate();
 	const [mattress, setMattress] = useState([]);
-    const [s,setS] = useState([]);
+    const [searching,setSearching] = useState([]);
 
 	const mattressService = mattressServiceFactory();
 	
@@ -69,14 +69,14 @@ export const MattressProvider = ({
         }
         
       const result = await mattressService.getSearch(search);
-      setS(result);
+      setSearching(result);
         navigate('/search');
 
     }
 
     const contextValue = {
         mattress,
-        s,
+        searching,
         onCreateMattressSubmit,
         onEditMattresssubmit,
         deleteMattress,
