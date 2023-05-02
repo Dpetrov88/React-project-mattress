@@ -16,7 +16,7 @@ export const Details = () => {
     const {deleteMattress} = useMattressContex();
     const [show, setShow] = useState(false);
     const [ mattress, setMattress ] = useState({});
-    const [buy, setBuy] = useState({});
+    const [buy, setBuy] = useState(0);
     const mattressService = useService(mattressServiceFactory);
     const navigate = useNavigate();
 
@@ -50,6 +50,7 @@ export const Details = () => {
     
      navigate('/profile')
     }
+    console.log(buy);
     
     return(
         <>
@@ -94,7 +95,7 @@ export const Details = () => {
                 </div>
                  )}
 
-                 {!isOwner && isAuthenticated && (buy === 0 || !buy)  &&
+                 {!isOwner && isAuthenticated && buy === 0  &&
                     <div className="actionBtn">
                     
                     <button onClick={onBuyClick}>Buy</button>
